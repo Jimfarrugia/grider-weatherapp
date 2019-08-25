@@ -18,25 +18,25 @@ class App extends Component {
     );
   }
 
-
-  render() {
+  renderContent() {
     const { latitude, errorMessage } = this.state;
 
+    if (errorMessage && !latitude) {
+      return <p>Error: {errorMessage}</p>;
+    }
+
+    if (!errorMessage && latitude) {
+      return <SeasonDisplay latitude={latitude} />;
+    }
+
+    return <Spinner message="Awaiting permissions..." />
+  }
+
+  render() {
     return (
-      <>
-        {
-          errorMessage && !latitude &&
-          <p>Error: {errorMessage}</p>
-        }
-        {
-          !errorMessage && latitude &&
-          <SeasonDisplay latitude={latitude} />
-        }
-        {
-          !errorMessage && !latitude &&
-          <Spinner message="Awaiting permissions..." />
-        }
-      </>
+      <div style={{ border: '10px solid red' }}>
+        {this.renderContent()}
+      </div>
     )
   }
 }
