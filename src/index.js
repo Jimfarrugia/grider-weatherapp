@@ -29,7 +29,7 @@ class App extends Component {
         }
         {
           !errorMessage && latitude &&
-          <p>Latitude: {latitude}</p>
+          <SeasonDisplay latitude={latitude} />
         }
         {
           !errorMessage && !latitude &&
