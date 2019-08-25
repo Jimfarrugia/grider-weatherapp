@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './components/SeasonDisplay';
+import Spinner from './components/Spinner';
 
 class App extends Component {
 
@@ -33,7 +34,7 @@ class App extends Component {
         }
         {
           !errorMessage && !latitude &&
-          <p>Loading...</p>
+          <Spinner message="Awaiting permissions..." />
         }
       </>
     )
