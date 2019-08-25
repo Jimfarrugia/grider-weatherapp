@@ -23,9 +23,16 @@ class App extends Component {
     const { latitude, errorMessage } = this.state;
 
     return (
-      <div>
-        <p>{errorMessage || 'Latitude: ' + latitude}</p>
-      </div>
+      <>
+        {
+          errorMessage && !latitude &&
+          <p>Error: {errorMessage}</p>
+        }
+        {
+          latitude && !errorMessage &&
+          <p>Latitude: {latitude}</p>
+        }
+      </>
     )
   }
 }
