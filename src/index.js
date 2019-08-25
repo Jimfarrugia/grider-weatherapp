@@ -29,8 +29,12 @@ class App extends Component {
           <p>Error: {errorMessage}</p>
         }
         {
-          latitude && !errorMessage &&
+          !errorMessage && latitude &&
           <p>Latitude: {latitude}</p>
+        }
+        {
+          !errorMessage && !latitude &&
+          <p>Loading...</p>
         }
       </>
     )
